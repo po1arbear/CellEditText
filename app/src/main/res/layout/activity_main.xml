@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <com.po1arbear.cell_edittext.celledittext.CellEditText
+    <com.po1arbear.custom.celledittext.CellEditText
         android:id="@+id/cell_edit"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="60dp"
+        android:layout_margin="20dp" />
 
     <Button
         android:id="@+id/input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_below="@id/cell_edit"
         android:text="input" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="delete" />
+        android:text="delete"
+        android:layout_below="@id/input"
+        />
 
-</LinearLayout>
+
+
+        <com.po1arbear.custom.celledittext.Keyboard
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/black"
+            />
+
+
+
+</RelativeLayout>

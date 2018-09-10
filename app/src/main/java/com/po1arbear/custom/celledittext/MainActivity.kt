@@ -1,4 +1,4 @@
-package com.po1arbear.cell_edittext.celledittext
+package com.po1arbear.custom.celledittext
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,7 +9,7 @@ class MainActivity :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        cell_edit.setOnInputListener(object :CellEditText.OnInputListener{
+        cell_edit.setOnInputListener(object : CellEditText.OnInputListener{
             override fun onFinished(str: String) {
                 Toast.makeText(this@MainActivity, "onFinish:$str", Toast.LENGTH_SHORT).show()
             }
@@ -20,7 +20,7 @@ class MainActivity :AppCompatActivity(){
         }
 
         delete.setOnClickListener {
-            cell_edit.delet()
+            cell_edit.delete()
         }
 
     }
