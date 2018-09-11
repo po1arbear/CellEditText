@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.layout_keyboard.view.*
 
 class Keyboard : RelativeLayout {
     var mAdapter: MyAdapter? = null
-    val keys = arrayOf("1","2","3","4","5","6","7","8","9","10","0","完成")
+    val keys = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "0", "完成")
 
     companion object {
         const val TYPE_COMMON = 996
@@ -32,11 +32,38 @@ class Keyboard : RelativeLayout {
         init()
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val widthMode = View.MeasureSpec.getMode(widthMeasureSpec)
+        val widthSize = View.MeasureSpec.getSize(widthMeasureSpec)
+
+        // 获取高-测量规则的模式和大小
+        val heightMode = View.MeasureSpec.getMode(heightMeasureSpec)
+        val heightSize = View.MeasureSpec.getSize(heightMeasureSpec)
+
+        // 设置wrap_content的默认宽 / 高值
+        // 默认宽/高的设定并无固定依据,根据需要灵活设置
+        // 类似TextView,ImageView等针对wrap_content均在onMeasure()对设置默认宽 / 高值有特殊处理,具体读者可以自行查看
+        val mWidth = 400
+        val mHeight = 400
+
+        // 当布局参数设置为wrap_content时，设置默认值
+        if (layoutParams.width == ViewGroup.LayoutParams.WRAP_CONTENT && layoutParams.height == ViewGroup.LayoutParams.WRAP_CONTENT) {
+            setMeasuredDimension(mWidth, mHeight)
+            // 宽 / 高任意一个布局参数为= wrap_content时，都设置默认值
+        } else if (layoutParams.width == ViewGroup.LayoutParams.WRAP_CONTENT) {
+            setMeasuredDimension(mWidth, heightSize)
+        } else if (layoutParams.height == ViewGroup.LayoutParams.WRAP_CONTENT) {
+            setMeasuredDimension(widthSize, mHeight)
+        }
+
+    }
+
     private fun init() {
         val view = View.inflate(context, R.layout.layout_keyboard, null)
-        addView(view, LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT))
+        addView(view, LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
         mAdapter = MyAdapter()
-        recycler_view.layoutManager = GridLayoutManager(context,3)
+        recycler_view.layoutManager = GridLayoutManager(context, 3)
         recycler_view.addItemDecoration(DefaultItemDecoration(context))
         recycler_view.adapter = mAdapter
     }
@@ -62,18 +89,28 @@ class Keyboard : RelativeLayout {
         }
 
         override fun getItemCount(): Int {
-           return keys.size
+            return keys.size
         }
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            when(holder.itemViewType){
-                TYPE_COMMON->{
+            when (holder.itemViewType) {
+                TYPE_COMMON -> {
                     holder.itemView.findViewById<TextView>(R.id.tv_key).text = keys[position]
+                    holder.itemView.findViewById<View>(R.id.tv_key).setOnClickListener {
+                        if(mOnItemClickListener!=null){
+                            mOnItemClickListener!!.onItemClick(position)
+                        }
+                    }
                 }
-                TYPE_DELET->{
 
+                TYPE_DELET -> {
+                    holder.itemView.findViewById<View>(R.id.ll_delete).setOnClickListener {
+                        mOnItemClickListener!!.onItemClick(position)
+
+                    }
                 }
             }
+
         }
 
         override fun getItemViewType(position: Int): Int {
@@ -86,5 +123,24 @@ class Keyboard : RelativeLayout {
 
     }
 
+    interface OnPressListener {
+        fun onPressed()
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    private var mOnPressListener: OnPressListener? = null
+
+    fun setOnPressListener(listener: OnPressListener) {
+        this.mOnPressListener = listener
+    }
+
+
+    private var mOnItemClickListener: OnItemClickListener? = null
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.mOnItemClickListener = listener
+    }
 
 }

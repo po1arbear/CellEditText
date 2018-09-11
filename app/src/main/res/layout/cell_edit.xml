@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/cell_edit"
     android:orientation="horizontal">
 
     <TextView
@@ -11,84 +10,78 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/cell_edit"
         android:gravity="center"
         android:textColor="#0000ff"
+        android:textSize="26sp"
         tools:text="1"
-        android:textSize="32sp" />
+        android:layout_marginLeft="20dp"
+        />
 
-    <View
-        android:layout_width="1px"
-        android:layout_height="match_parent"
-        android:background="#999999" />
 
     <TextView
         android:id="@+id/tv_pay2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/cell_edit"
         android:gravity="center"
         android:textColor="#0000ff"
-        tools:text="1"
-        android:textSize="32sp" />
-
-    <View
-        android:layout_width="1px"
-        android:layout_height="match_parent"
-        android:background="#999999" />
+        android:layout_marginLeft="20dp"
+        android:textSize="26sp"
+        tools:text="1" />
 
     <TextView
         android:id="@+id/tv_pay3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/cell_edit"
         android:gravity="center"
         android:textColor="#0000ff"
-        tools:text="1"
-        android:textSize="32sp" />
+        android:layout_marginLeft="20dp"
+        android:textSize="26sp"
+        tools:text="1" />
 
-    <View
-        android:layout_width="1px"
-        android:layout_height="match_parent"
-        android:background="#999999" />
 
     <TextView
         android:id="@+id/tv_pay4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/cell_edit"
         android:gravity="center"
         android:textColor="#0000ff"
-        tools:text="1"
-        android:textSize="32sp" />
-
-    <View
-        android:layout_width="1px"
-        android:layout_height="match_parent"
-        android:background="#999999" />
+        android:layout_marginLeft="20dp"
+        android:textSize="26sp"
+        tools:text="1" />
 
     <TextView
         android:id="@+id/tv_pay5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="@drawable/cell_edit"
+        android:layout_marginLeft="20dp"
+
         android:gravity="center"
         android:textColor="#0000ff"
-        tools:text="1"
-        android:textSize="32sp" />
+        android:textSize="26sp"
+        tools:text="1" />
 
-    <View
-        android:layout_width="1px"
-        android:layout_height="match_parent"
-        android:background="#999999" />
 
     <TextView
         android:id="@+id/tv_pay6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+
+        android:background="@drawable/cell_edit"
         android:gravity="center"
         android:textColor="#0000ff"
-        tools:text="1"
-        android:textSize="32sp" />
+        android:textSize="26sp"
+        android:layout_marginRight="20dp"
+        tools:text="1" />
 
 </LinearLayout>

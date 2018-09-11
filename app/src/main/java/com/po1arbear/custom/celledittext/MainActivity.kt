@@ -23,5 +23,27 @@ class MainActivity :AppCompatActivity(){
             cell_edit.delete()
         }
 
+        keyboard.setOnItemClickListener(object :Keyboard.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                when(position){
+                    9->{//回退
+                        cell_edit.delete()
+                    }
+                    11->{//完成
+                        Toast.makeText(this@MainActivity,cell_edit.inputNumber,Toast.LENGTH_SHORT).show()
+                    }
+                    else->{
+                        val value = keyboard.keys[position]
+                        cell_edit.setText(value)
+                    }
+                }
+            }
+        })
+
+        keyboard.mAdapter!!.notifyDataSetChanged()
+
+
+
+
     }
 }

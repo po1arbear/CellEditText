@@ -17,7 +17,7 @@ class CellEditText : LinearLayout {
         init()
     }
 
-    private var inputNumber: StringBuilder = StringBuilder("")
+    var inputNumber: StringBuilder = StringBuilder("")
     private var mOnInputListener: OnInputListener? = null
 
     init {
