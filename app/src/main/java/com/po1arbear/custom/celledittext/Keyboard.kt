@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.po1arbear.custom.celledittext.R.id.recycler_view
 import kotlinx.android.synthetic.main.layout_keyboard.view.*
 
 class Keyboard : RelativeLayout {
@@ -97,7 +98,7 @@ class Keyboard : RelativeLayout {
                 TYPE_COMMON -> {
                     holder.itemView.findViewById<TextView>(R.id.tv_key).text = keys[position]
                     holder.itemView.findViewById<View>(R.id.tv_key).setOnClickListener {
-                        if(mOnItemClickListener!=null){
+                        if (mOnItemClickListener != null) {
                             mOnItemClickListener!!.onItemClick(position)
                         }
                     }
@@ -123,18 +124,8 @@ class Keyboard : RelativeLayout {
 
     }
 
-    interface OnPressListener {
-        fun onPressed()
-    }
-
     interface OnItemClickListener {
         fun onItemClick(position: Int)
-    }
-
-    private var mOnPressListener: OnPressListener? = null
-
-    fun setOnPressListener(listener: OnPressListener) {
-        this.mOnPressListener = listener
     }
 
 

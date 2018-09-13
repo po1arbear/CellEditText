@@ -29,19 +29,15 @@ class DefaultItemDecoration(context: Context) : RecyclerView.ItemDecoration() {
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
         val childCount: Int = parent.childCount
-//        val left: Int = parent.paddingLeft
-//        val right: Int = parent.width - parent.paddingRight
         for (i in 0 until childCount) {
             val view: View = parent.getChildAt(i)
             val top = view.top + dividerHeight
             val bottom = view.bottom + dividerHeight
-            val left = view.bottom+dividerHeight
+            val left = view.bottom + dividerHeight
             val right = view.bottom + dividerHeight
-
             c.drawRect(left.toFloat(), top.toFloat()
                     , right.toFloat(), bottom.toFloat(), mPaint)
         }
-
 
     }
 
