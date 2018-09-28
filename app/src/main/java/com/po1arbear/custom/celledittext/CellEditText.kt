@@ -9,6 +9,18 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.cell_edit.view.*
 
 class CellEditText : LinearLayout {
+
+    /**
+     * 输入的内容
+     */
+    var inputNumber: StringBuilder = StringBuilder("")
+
+    /**
+     * 输入监听器
+     */
+
+    private var mOnInputListener: OnInputListener? = null
+
     constructor(context: Context?) : super(context) {
         init()
     }
@@ -17,19 +29,15 @@ class CellEditText : LinearLayout {
         init()
     }
 
-    var inputNumber: StringBuilder = StringBuilder("")
-    private var mOnInputListener: OnInputListener? = null
-
-    init {
-        init()
-    }
 
     private fun init() {
         val view = View.inflate(context, R.layout.cell_edit, null)
         addView(view, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
     }
 
-
+    /**
+     * 输入文本
+     */
     fun setText(str: String) {
         Log.d("inputNumber", "str:" + str + "  length:" + inputNumber.length)
         when (inputNumber.length) {
@@ -69,6 +77,9 @@ class CellEditText : LinearLayout {
 
     }
 
+    /**
+     * 回退按钮动作
+     */
     fun delete() {
         when (inputNumber.length) {
             0 -> {
@@ -104,15 +115,14 @@ class CellEditText : LinearLayout {
 
     }
 
-
+    /**
+     * 暴露的输入接口
+     */
     fun setOnInputListener(listener: OnInputListener) {
         mOnInputListener = listener
     }
 
     interface OnInputListener {
-        private fun onInput() {
-
-        }
 
         fun onFinished(str: String)
     }

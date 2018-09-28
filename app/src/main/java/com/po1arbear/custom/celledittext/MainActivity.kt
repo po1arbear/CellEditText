@@ -5,45 +5,32 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity :AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        cell_edit.setOnInputListener(object : CellEditText.OnInputListener{
+        cell_edit.setOnInputListener(object : CellEditText.OnInputListener {
             override fun onFinished(str: String) {
                 Toast.makeText(this@MainActivity, "onFinish:$str", Toast.LENGTH_SHORT).show()
             }
         })
 
-        input.setOnClickListener{
-            cell_edit.setText("1")
-        }
-
-        delete.setOnClickListener {
-            cell_edit.delete()
-        }
-
-        keyboard.setOnItemClickListener(object :Keyboard.OnItemClickListener{
+        keyboard.setOnItemClickListener(object : Keyboard.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                when(position){
-                    9->{//回退
+                when (position) {
+                    9 -> {//回退
                         cell_edit.delete()
                     }
-                    11->{//完成
-                        Toast.makeText(this@MainActivity,cell_edit.inputNumber,Toast.LENGTH_SHORT).show()
+                    11 -> {//完成
+                        Toast.makeText(this@MainActivity, cell_edit.inputNumber, Toast.LENGTH_SHORT).show()
                     }
-                    else->{
+                    else -> {
                         val value = keyboard.keys[position]
                         cell_edit.setText(value)
                     }
                 }
             }
         })
-
-        keyboard.mAdapter!!.notifyDataSetChanged()
-
-
-
 
     }
 }

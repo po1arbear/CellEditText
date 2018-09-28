@@ -4,16 +4,14 @@ import android.content.Context
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.po1arbear.custom.celledittext.R.id.recycler_view
 import kotlinx.android.synthetic.main.layout_keyboard.view.*
 
 class Keyboard : RelativeLayout {
-    var mAdapter: MyAdapter? = null
+    private var mAdapter: MyAdapter? = null
     val keys = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "0", "完成")
 
     companion object {
@@ -38,13 +36,9 @@ class Keyboard : RelativeLayout {
         val widthMode = View.MeasureSpec.getMode(widthMeasureSpec)
         val widthSize = View.MeasureSpec.getSize(widthMeasureSpec)
 
-        // 获取高-测量规则的模式和大小
         val heightMode = View.MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = View.MeasureSpec.getSize(heightMeasureSpec)
 
-        // 设置wrap_content的默认宽 / 高值
-        // 默认宽/高的设定并无固定依据,根据需要灵活设置
-        // 类似TextView,ImageView等针对wrap_content均在onMeasure()对设置默认宽 / 高值有特殊处理,具体读者可以自行查看
         val mWidth = 400
         val mHeight = 400
 
@@ -65,7 +59,7 @@ class Keyboard : RelativeLayout {
         addView(view, LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
         mAdapter = MyAdapter()
         recycler_view.layoutManager = GridLayoutManager(context, 3)
-        recycler_view.addItemDecoration(DefaultItemDecoration(context))
+        recycler_view.addItemDecoration(KeyboardDecoration(context))
         recycler_view.adapter = mAdapter
     }
 

@@ -8,7 +8,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
 
-class DefaultItemDecoration(context: Context) : RecyclerView.ItemDecoration() {
+class KeyboardDecoration(context: Context) : RecyclerView.ItemDecoration() {
 
     var mPaint: Paint = Paint()
     var dividerHeight: Int = 1
