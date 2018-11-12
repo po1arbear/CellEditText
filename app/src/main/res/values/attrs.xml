@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="leftText" format="string" />
+    <attr name="leftTextColor" format="color|reference" />
+    <attr name="leftTextSize" format="float" />
+    <attr name="rightText" format="string" />
+    <attr name="rightTextColor" format="color|reference" />
+    <attr name="rightTextSize" format="float" />
+    <declare-styleable name="CommonLinearLayout">
+        <attr name="leftText" />
+        <attr name="rightText" />
+        <attr name="leftTextColor" />
+        <attr name="rightTextColor" />
+        <attr name="leftTextSize" />
+        <attr name="rightTextSize" />
+        <attr name="rightArrowVisible" format="boolean" />
+        <attr name="bottomViewVisible" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="BottomLineLayout">
+        <attr name="leftText" />
+        <attr name="leftTextColor" />
+        <attr name="leftTextSize" />
+        <attr name="rightText" />
+        <attr name="rightTextColor" />
+        <attr name="rightTextSize" />
+        <attr name="bottomLineColor" format="color|reference" />
+        <attr name="bottomLineWidth" format="dimension" />
+
+    </declare-styleable>
+
+    <declare-styleable name="VerifyCodeView">
+        <attr name="password" format="boolean" />
+        <attr name="textColor" format="color|reference" />
+        <attr name="textSize" format="float" />
+    </declare-styleable>
+    <declare-styleable name="InputCellView">
+        <attr name="password" />
+        <attr name="textColor" />
+        <attr name="textSize" />
+    </declare-styleable>
+
+</resources>

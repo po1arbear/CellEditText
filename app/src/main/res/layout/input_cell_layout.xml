@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:id="@+id/ll_verity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/tv_pay1"
+                style="@style/InputCellStyle"
+                tools:text="22"
+
+        />
+
+        <TextView
+                android:id="@+id/tv_pay2"
+                style="@style/InputCellStyle"/>
+
+        <TextView
+                android:id="@+id/tv_pay3"
+                style="@style/InputCellStyle"/>
+
+        <TextView
+                android:id="@+id/tv_pay4"
+                style="@style/InputCellStyle"/>
+
+        <TextView
+                android:id="@+id/tv_pay5"
+                style="@style/InputCellStyle"/>
+
+        <TextView
+                android:id="@+id/tv_pay6"
+                style="@style/InputCellStyle"/>
+
+    </LinearLayout>
+
+    <EditText
+            android:id="@+id/et_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:cursorVisible="false"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@android:color/transparent"/>
+
+</RelativeLayout>

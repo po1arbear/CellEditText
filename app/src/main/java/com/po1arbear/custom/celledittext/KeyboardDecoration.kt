@@ -17,7 +17,6 @@ class KeyboardDecoration(context: Context) : RecyclerView.ItemDecoration() {
         mPaint.color = ContextCompat.getColor(context, android.R.color.holo_red_dark)
     }
 
-
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
         outRect.top = dividerHeight

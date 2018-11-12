@@ -15,31 +15,26 @@
         android:id="@+id/input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_below="@id/cell_edit"
+        android:layout_marginTop="20dp"
         android:text="input"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="delete"
         android:layout_below="@id/input"
-        android:visibility="gone"
-        />
+        android:text="delete"
+        android:visibility="gone" />
 
 
-
-        <com.po1arbear.custom.celledittext.Keyboard
-            android:id="@+id/keyboard"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_alignParentBottom="true"
-            android:background="@android:color/black"
-            />
-
+    <com.po1arbear.custom.celledittext.Keyboard
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/black" />
 
 
 </RelativeLayout>
