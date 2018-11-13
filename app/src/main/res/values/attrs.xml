@@ -30,15 +30,15 @@
 
     </declare-styleable>
 
-    <declare-styleable name="VerifyCodeView">
-        <attr name="password" format="boolean" />
+    <declare-styleable name="CellInputView">
+        <attr name="isPassword" format="boolean" />
         <attr name="textColor" format="color|reference" />
         <attr name="textSize" format="float" />
+        <attr name="inputType" format="enum">
+            <enum name="number" value="0x00000002" />
+            <enum name="text" value="0x00000001" />
+        </attr>
     </declare-styleable>
-    <declare-styleable name="InputCellView">
-        <attr name="password" />
-        <attr name="textColor" />
-        <attr name="textSize" />
-    </declare-styleable>
+
 
 </resources>

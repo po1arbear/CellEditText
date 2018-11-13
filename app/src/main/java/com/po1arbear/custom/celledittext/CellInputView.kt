@@ -16,12 +16,13 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.input_cell_layout.view.*
 
-class InputCellView : RelativeLayout {
+class CellInputView : RelativeLayout {
 
     private val number = 6
     private val textViews: Array<TextView?> = arrayOfNulls(number)
     private var inputContent: String = ""
     private var isPassword = false
+    private var inputType = 0
 
     constructor (context: Context) : this(context, null)
 
@@ -33,10 +34,11 @@ class InputCellView : RelativeLayout {
         var textColor = Color.parseColor("#396AFC")
         var textSize = 16f
         attrs?.let {
-            context.obtainStyledAttributes(attrs, R.styleable.InputCellView)?.let {
-                isPassword = it.getBoolean(R.styleable.InputCellView_password, false)
-                textColor = it.getColor(R.styleable.InputCellView_textColor, Color.parseColor("#1B1B4E"))
-                textSize = it.getFloat(R.styleable.InputCellView_textSize, 16f)
+            context.obtainStyledAttributes(attrs, R.styleable.CellInputView)?.let {
+                isPassword = it.getBoolean(R.styleable.CellInputView_isPassword, false)
+                textColor = it.getColor(R.styleable.CellInputView_textColor, Color.parseColor("#1B1B4E"))
+                textSize = it.getFloat(R.styleable.CellInputView_textSize, 16f)
+                inputType = it.getInt(R.styleable.CellInputView_inputType, EditorInfo.TYPE_CLASS_NUMBER)
                 it.recycle()
             }
         }
@@ -55,7 +57,7 @@ class InputCellView : RelativeLayout {
         val layoutParams = et_input.layoutParams as LayoutParams
         layoutParams.height = width
         et_input.layoutParams = layoutParams
-
+        et_input.inputType = inputType
         textViews[0]?.isSelected = true
         setEditTextListener()
     }
@@ -66,8 +68,6 @@ class InputCellView : RelativeLayout {
                 inputContent = et_input.text.toString()
                 if (inputContent.length >= number) {
                     inputCompleteListener?.inputComplete()
-                } else {
-                    inputCompleteListener?.invalidContent()
                 }
                 for (i in 0 until number) {
                     textViews[i]?.isSelected = false
@@ -85,9 +85,11 @@ class InputCellView : RelativeLayout {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
             }
 
         })
@@ -103,6 +105,7 @@ class InputCellView : RelativeLayout {
             }
             false
         })
+
     }
 
     fun clearContent() {
@@ -152,5 +155,6 @@ class InputCellView : RelativeLayout {
                 context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager?.hideSoftInputFromWindow(windowToken, 0)
     }
+
 
 }
